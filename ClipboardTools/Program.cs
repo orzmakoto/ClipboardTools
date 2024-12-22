@@ -8,9 +8,9 @@ namespace ClipboardTools
     {
         static void Main(string[] args)
         {
-            args = new string[] {
-                "xmlf"
-            };
+            //args = new string[] {
+            //    "show"
+            //};
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
             CommandLineApplication.Execute<Command>(args);

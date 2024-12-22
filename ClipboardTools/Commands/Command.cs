@@ -1,4 +1,6 @@
-﻿using McMaster.Extensions.CommandLineUtils;
+﻿using ClipboardTools.Commands.Convert;
+using ClipboardTools.Commands.Format;
+using McMaster.Extensions.CommandLineUtils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +12,9 @@ namespace ClipboardTools.Commands
     [HelpOption("--help|-h")]
     [Command]
     [Subcommand(
-        typeof(FormatJsonCommand),
-        typeof(FormatXmlCommand)
+        typeof(FormatCommand),
+        typeof(ConvertCommand),
+        typeof(ShowCommand)
         )]
     internal class Command
     {

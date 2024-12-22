@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClipboardTools.Commands
+namespace ClipboardTools.Commands.Format
 {
-    [Command(name: "jsonf", Description = "Format json format with indentation")]
+    [Command(name: "json", Description = "Format json format with indentation")]
     internal class FormatJsonCommand : CommandBase
     {
         protected override string InnerExecute(string text)
