@@ -1,10 +1,15 @@
-﻿using McMaster.Extensions.CommandLineUtils;
+﻿using CsvHelper.Configuration;
+using CsvHelper;
+using McMaster.Extensions.CommandLineUtils;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ClipboardTools.Commands.Convert
 {
@@ -13,33 +18,45 @@ namespace ClipboardTools.Commands.Convert
     {
         protected override string InnerExecute(string text)
         {
-            var lines = new List<string>();
+            var delimiter = ",";
             using (var reader = new StringReader(text))
             {
-                while (reader.Peek() > -1)
+                var headerLine = reader.ReadLine();
+                if (headerLine?.Contains("\t") == true)
                 {
-                    //一行読み込んで表示する
-                    lines.Add(reader.ReadLine());
+                    delimiter = "\t";
                 }
             }
-            if (lines.Count == 0)
+            
+            var sourceDatas = new List<List<string>>();
+            var config = new CsvConfiguration(new CultureInfo("ja-JP", false));
+            config.HasHeaderRecord = false;
+            config.Delimiter = delimiter;
+            using (var csv = new CsvReader(new StringReader(text), config))
             {
-                return null;
+                while (csv.Read())
+                {
+                    sourceDatas.Add((csv.GetRecord<dynamic>() as IDictionary<string, object>).Values.Select(i => i.ToString()).ToList());
+                }
             }
 
-            var header = lines.First();
-            if(header.Contains("\t") == true)
+            var mdTableString = new StringBuilder();
+
+            foreach (var data in sourceDatas)
             {
-
+                var rowString = $"| {string.Join(" | ", data)} |";
+                if (mdTableString.Length == 0)
+                {
+                    mdTableString.AppendLine(rowString);
+                    mdTableString.AppendLine($"| {string.Join(" | ", Enumerable.Repeat("---", data.Count).ToArray())} |");
+                }
+                else
+                {
+                    mdTableString.AppendLine(rowString);
+                }
             }
-            else if (header.Contains(",") == true)
-            {
 
-            }
-
-
-
-            return null;
+            return mdTableString.ToString();
         }
     }
 }
