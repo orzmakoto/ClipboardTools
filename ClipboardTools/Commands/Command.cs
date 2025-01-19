@@ -14,6 +14,8 @@ namespace ClipboardTools.Commands
     [Subcommand(
         typeof(FormatCommand),
         typeof(ConvertCommand),
+        typeof(EncodeCommand),
+        typeof(DecodeCommand),
         typeof(ShowCommand)
         )]
     internal class Command
