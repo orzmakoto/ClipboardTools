@@ -1,4 +1,6 @@
 ﻿using ClipboardTools.Commands.Convert;
+using ClipboardTools.Commands.Edit;
+using ClipboardTools.Commands.EncodeDecode;
 using ClipboardTools.Commands.Format;
 using McMaster.Extensions.CommandLineUtils;
 using System;
@@ -10,13 +12,16 @@ using System.Threading.Tasks;
 namespace ClipboardTools.Commands
 {
     [HelpOption("--help|-h")]
-    [Command]
+    [Command(name: "clipboardtools", Description = "ClipboardTools")]
     [Subcommand(
-        typeof(FormatCommand),
-        typeof(ConvertCommand),
-        typeof(EncodeCommand),
-        typeof(DecodeCommand),
-        typeof(ShowCommand)
+        typeof(ShowCommand),
+        typeof(ConvertMdTableCommand),
+        typeof(Base64EncodeCommand),
+        typeof(Base64DecodeCommand),
+        typeof(SamlDecodeCommand),
+        typeof(JsonFormatCommand),
+        typeof(XmlFormatCommand),
+        typeof(SortCommand)
         )]
     internal class Command
     {

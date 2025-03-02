@@ -13,7 +13,8 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ClipboardTools.Commands.Convert
 {
-    [Command(name: "tomdtable", Description = "Format json format with indentation")]
+    [HelpOption("--help|-h")]
+    [Command(name: "tomdtable", Description = "CSVもしくはTSV形式のテキストをMarkdownテーブルに変換する")]
     internal class ConvertMdTableCommand : CommandBase
     {
         protected override string InnerExecute(string text)

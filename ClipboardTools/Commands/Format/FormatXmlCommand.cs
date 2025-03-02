@@ -11,8 +11,9 @@ using Formatting = System.Xml.Formatting;
 
 namespace ClipboardTools.Commands.Format
 {
-    [Command(name: "xml", Description = "Format Xml format with indentation")]
-    internal class FormatXmlCommand : CommandBase
+    [HelpOption("--help|-h")]
+    [Command(name: "xmlf", Description = "インデント付きのXML形式をフォーマットする")]
+    internal class XmlFormatCommand : CommandBase
     {
         protected override string InnerExecute(string text)
         {

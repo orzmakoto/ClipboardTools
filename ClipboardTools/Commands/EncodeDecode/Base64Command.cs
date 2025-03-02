@@ -8,16 +8,19 @@ using System.Threading.Tasks;
 
 namespace ClipboardTools.Commands.Format
 {
-    [Command(name: "base64", Description = "")]
-    internal class EncodeBase64Command : CommandBase
+    [HelpOption("--help|-h")]
+    [Command(name: "base64e", Description = "文字列をBase64でエンコードする")]
+    internal class Base64EncodeCommand : CommandBase
     {
         protected override string InnerExecute(string text)
         {
             return System.Convert.ToBase64String(Encoding.UTF8.GetBytes(text));
         }
     }
-    [Command(name: "base64", Description = "")]
-    internal class DecodeBase64Command : CommandBase
+
+    [HelpOption("--help|-h")]
+    [Command(name: "base64d", Description = "Base64でエンコードされた文字列をデコードする")]
+    internal class Base64DecodeCommand : CommandBase
     {
         protected override string InnerExecute(string text)
         {

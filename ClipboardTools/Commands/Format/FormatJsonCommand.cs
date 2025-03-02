@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace ClipboardTools.Commands.Format
 {
-    [Command(name: "json", Description = "Format json format with indentation")]
-    internal class FormatJsonCommand : CommandBase
+    [HelpOption("--help|-h")]
+    [Command(name: "jsonf", Description = "インデント付きのJSON形式をフォーマットする")]
+    internal class JsonFormatCommand : CommandBase
     {
         protected override string InnerExecute(string text)
         {

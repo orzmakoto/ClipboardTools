@@ -9,7 +9,7 @@ namespace ClipboardTools
         static void Main(string[] args)
         {
             //args = new string[] {
-            //    "convert","tomdtable"
+            //    "sort"
             //};
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
