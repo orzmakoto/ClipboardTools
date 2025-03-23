@@ -15,12 +15,18 @@ namespace ClipboardTools.Commands
     [Command(name: "clipboardtools", Description = "ClipboardTools")]
     [Subcommand(
         typeof(ShowCommand),
+        typeof(SaveCommand),
+
         typeof(ConvertMdTableCommand),
         typeof(Base64EncodeCommand),
         typeof(Base64DecodeCommand),
         typeof(SamlDecodeCommand),
+
         typeof(JsonFormatCommand),
         typeof(XmlFormatCommand),
+
+        typeof(RemoveDuplicateCommand),
+        typeof(RemoveEmptyLineCommand),
         typeof(SortCommand)
         )]
     internal class Command

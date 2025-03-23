@@ -14,7 +14,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace ClipboardTools.Commands.Convert
 {
     [HelpOption("--help|-h")]
-    [Command(name: "tomdtable", Description = "CSVもしくはTSV形式のテキストをMarkdownテーブルに変換する")]
+    [Command(name: "to-mdtable", Description = "CSVもしくはTSV形式のテキストをMarkdownテーブルに変換する")]
     internal class ConvertMdTableCommand : CommandBase
     {
         protected override string InnerExecute(string text)

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ClipboardTools.Commands.Format
 {
     [HelpOption("--help|-h")]
-    [Command(name: "jsonf", Description = "インデント付きのJSON形式をフォーマットする")]
+    [Command(name: "json-f", Description = "インデント付きのJSON形式をフォーマットする")]
     internal class JsonFormatCommand : CommandBase
     {
         protected override string InnerExecute(string text)

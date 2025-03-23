@@ -12,7 +12,7 @@ using Formatting = System.Xml.Formatting;
 namespace ClipboardTools.Commands.Format
 {
     [HelpOption("--help|-h")]
-    [Command(name: "xmlf", Description = "インデント付きのXML形式をフォーマットする")]
+    [Command(name: "xml-f", Description = "インデント付きのXML形式をフォーマットする")]
     internal class XmlFormatCommand : CommandBase
     {
         protected override string InnerExecute(string text)

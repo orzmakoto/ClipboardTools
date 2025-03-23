@@ -9,7 +9,7 @@ using System.Xml;
 namespace ClipboardTools.Commands.EncodeDecode
 {
     [HelpOption("--help|-h")]
-    [Command(name: "samld", Description = "SAMLリクエストパラメーターをデコードして整形します。")]
+    [Command(name: "samlres-d", Description = "SAMLリクエストパラメーターをデコードして整形します。")]
     internal class SamlDecodeCommand : CommandBase
     {
         protected override string InnerExecute(string text)

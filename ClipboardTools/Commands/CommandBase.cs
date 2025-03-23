@@ -12,6 +12,10 @@ namespace ClipboardTools.Commands
     [HelpOption("--help")]
     public abstract class CommandBase
     {
+
+        [Option(ShortName = "s", Description = "実行結果をクリップボードに格納せずに標準出力する")]
+        public bool Show { get; set; } = false;
+
         protected abstract string InnerExecute(string text);
 
         public int OnExecute()
@@ -29,7 +33,14 @@ namespace ClipboardTools.Commands
             catch { }
             if (string.IsNullOrEmpty(resultText) == false)
             {
-                ClipboardService.SetText(resultText);
+                if (Show)
+                {
+                    Console.Write(resultText);
+                }
+                else
+                {
+                    ClipboardService.SetText(resultText);
+                }
             }
             return 0;
         }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ClipboardTools.Commands.Format
 {
     [HelpOption("--help|-h")]
-    [Command(name: "base64e", Description = "文字列をBase64でエンコードする")]
+    [Command(name: "base64-e", Description = "文字列をBase64でエンコードする")]
     internal class Base64EncodeCommand : CommandBase
     {
         protected override string InnerExecute(string text)
@@ -19,7 +19,7 @@ namespace ClipboardTools.Commands.Format
     }
 
     [HelpOption("--help|-h")]
-    [Command(name: "base64d", Description = "Base64でエンコードされた文字列をデコードする")]
+    [Command(name: "base64-d", Description = "Base64でエンコードされた文字列をデコードする")]
     internal class Base64DecodeCommand : CommandBase
     {
         protected override string InnerExecute(string text)
