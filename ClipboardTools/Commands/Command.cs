@@ -2,6 +2,7 @@
 using ClipboardTools.Commands.Edit;
 using ClipboardTools.Commands.EncodeDecode;
 using ClipboardTools.Commands.Format;
+using ClipboardTools.Commands.Math;
 using McMaster.Extensions.CommandLineUtils;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,9 @@ namespace ClipboardTools.Commands
         typeof(SaveCommand),
 
         typeof(ConvertMdTableCommand),
+        typeof(ConvertLowerCommand),
+        typeof(ConvertUpperCommand),
+
         typeof(Base64EncodeCommand),
         typeof(Base64DecodeCommand),
         typeof(SamlDecodeCommand),
@@ -27,7 +31,9 @@ namespace ClipboardTools.Commands
 
         typeof(RemoveDuplicateCommand),
         typeof(RemoveEmptyLineCommand),
-        typeof(SortCommand)
+        typeof(SortCommand),
+
+        typeof(SumCommand)
         )]
     internal class Command
     {
